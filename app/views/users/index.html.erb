@@ -1,0 +1,14 @@
+<% @users.each do |user| %>
+  <%= user[0] %> Has 
+  <form class="" action="<%=transactions_url%>" method="post">
+      <text>Send to <%= user[0] %></text>
+      <label for="i1">Number of Credits</label>
+      <input id="i1" type="text" name="transaction[number_credits]" value="">
+
+      <input type="hidden" name="transaction[received_id]" value="<%=user[1]%>">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+      <label for="Send">Send</label>
+      <input id="Send" type="submit" name="" value="">
+  </form>
+<% end %>
