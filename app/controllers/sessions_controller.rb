@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       redirect_to users_url
     else
       flash[:errors] = "No user matching those credentials"
-      render :new
+      redirect_to new_session_url
     end
   end
 

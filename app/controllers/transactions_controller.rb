@@ -4,9 +4,12 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+
+    ##given_id MUST be defined in the backend so users cannot impersonate
+    ##another id using postman or similar tools
     @transaction.given_id = current_user.id
-    if @transaction.save
-    else
+
+    unless @transaction.save
       flash[:errors] = @transaction.errors.full_messages
     end
     redirect_to users_url

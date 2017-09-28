@@ -1,6 +1,9 @@
 class User < ApplicationRecord
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true,
+  :length => {:minimum => 3, :maximum => 254},
+  :email_format => { :message => 'must be valid' }
+
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :transactions_received,
