@@ -1,6 +1,6 @@
 <% @transactions.each do |transaction| %>
-  From: <%= transaction.user_given.username %>
-  To: <%= transaction.user_received.username %>
+  From: <%= transaction.user_given.email %>
+  To: <%= transaction.user_received.email %>
   Amount: <%= transaction.number_credits %>
   <br>
 <% end %>

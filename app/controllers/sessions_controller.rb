@@ -1,12 +1,14 @@
 class SessionsController < ApplicationController
 
   def new
+    @action_url = session_url
+    @action_name = "Log In"
   end
 
   def create
     credentials = params[:user]
     @user = User.find_by_credentials(
-    credentials[:username],
+    credentials[:email],
     credentials[:password])
     if @user
       log_in(@user)

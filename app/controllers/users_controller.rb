@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   def new
+    @action_url = users_url
+    @action_name = "Sign Up"
   end
 
   def create
@@ -15,13 +17,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.pluck(:username, :id) ##Only the information we need
+    @users = User.all.pluck(:email, :id) ##Only the information we need
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:email, :password)
   end
 
 end
