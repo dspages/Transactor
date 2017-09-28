@@ -1,3 +1,6 @@
+
+##This velidation is important.
+##We do not want users to be able to send a negative number of credits!
 class TransactionValidator < ActiveModel::Validator
   def validate(record)
     if record.number_credits > record.user_given.count_credits

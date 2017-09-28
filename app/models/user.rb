@@ -1,3 +1,7 @@
+##Normally we might use a prepackaged solution like OAuth for user Auth.
+##But "find a gem for that" is usually the not an appropriate answer to an interview question.
+##So I have handrolled Auth for the purpose of the challenge.
+
 class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true,
