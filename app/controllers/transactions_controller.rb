@@ -12,6 +12,8 @@ class TransactionsController < ApplicationController
     unless @transaction.save
       flash[:errors] = @transaction.errors.full_messages
     end
+    @transaction.save
+
     redirect_to users_url
   end
 
